@@ -1,5 +1,5 @@
-feature 'Testing infrastucture' do
-  scenario 'Can run app and display page' do
+feature 'Enter Names' do
+  scenario 'Displays form and has submit button' do
     visit('/')
     expect(page).to have_content 'submit'
   end
