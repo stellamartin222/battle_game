@@ -5,12 +5,7 @@ feature 'Enter Names' do
   end
 
   scenario 'will store names given by the player' do
-    visit('/')
-    within("#name_form") do
-      fill_in 'player_1_name', with: 'stella'
-      fill_in 'player_2_name', with: 'troy'
-    end
-    click_button 'submit'
+    sign_in_and_play
     expect(page).to have_content 'Player 1 name is stella Player 2 name is troy'
   end
 end
