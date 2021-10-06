@@ -30,7 +30,8 @@ class Battle < Sinatra::Base
 
   get '/attack' do
     @game = $game
-    $game.attack($game.player_2)
+    attackee = $game.current_player == $game.player_1 ? $game.player_2 : $game.player_1
+    $game.attack(attackee)
     erb(:attack)
   end
 

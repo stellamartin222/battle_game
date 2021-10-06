@@ -7,7 +7,7 @@ def sign_in_and_play
     click_button 'submit'
 end
 
-def attack_player_2_and_confirm
+def attack_player_and_confirm
   visit('/play')
   click_button "Attack player"
 end
