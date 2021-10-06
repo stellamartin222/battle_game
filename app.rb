@@ -1,6 +1,6 @@
 require 'sinatra'
 require "sinatra/reloader" if development?
-require 'player'
+require './lib/player'
 
 class Battle < Sinatra::Base
 
@@ -21,8 +21,8 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    @player_1 = $player_1.name
-    @player_2 = $player_2.name
+    @player_1 = $player_1
+    @player_2 = $player_2
     erb(:play)
   end
 
@@ -33,6 +33,7 @@ class Battle < Sinatra::Base
   get '/attack' do
     @player_1 = $player_1.name
     @player_2 = $player_2.name
+    $player_2.take_damage
     erb(:attack)
   end
 
