@@ -10,10 +10,6 @@ class Player
   def get_name
     @name
   end
-  
-  def attack_opponent 
-    return 10
-  end
 
   def take_damage
     @health -= 10

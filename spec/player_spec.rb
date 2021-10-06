@@ -15,12 +15,6 @@ describe Player do
       expect(player.get_name).to eq("Player 1")
     end
   end
-  
-  describe '#attack_opponent' do
-    it "should reduce opponent hp by 10" do
-      expect(player.attack_opponent). to eq 10
-    end
-  end
 
   describe '#take_damage' do
     it "should reduce your hp by 10" do
