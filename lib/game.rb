@@ -1,13 +1,14 @@
 require_relative 'player'
 
 class Game
-  attr_reader :player_1, :player_2, :current_player, :players
+  attr_reader :player_1, :player_2, :current_player, :players, :current_opponent
 
   def initialize(player_1, player_2)
     @player_1 = player_1
     @player_2 = player_2
     @players = [@player_1, @player_2]
     @current_player = @player_1
+    @current_opponent = @player_2
   end
 
   def attack(opponent)
@@ -19,6 +20,7 @@ class Game
 
   def switch_turn
     @current_player = current_player == @player_1 ? @player_2 : @player_1
+    @current_opponent = current_opponent == @player_1 ? @player_2 : @player_1
   end
 
 end

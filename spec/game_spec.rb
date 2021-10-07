@@ -19,7 +19,9 @@ describe Game do
   describe '#attack_opponent' do
     it "should reduce opponent hp by 10" do
       allow(player_2).to receive(:take_damage).and_return(true)
-      expect(game.attack(player_2)). to eq player_2
+      expect(game.attack(player_2)). to eq player_1
     end
+
+    
   end
 end
