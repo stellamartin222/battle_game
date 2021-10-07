@@ -8,7 +8,6 @@ def sign_in_and_play
 end
 
 def attack_player_and_confirm
-  visit('/play')
   click_button "Attack player"
 end
   

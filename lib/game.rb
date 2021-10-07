@@ -1,4 +1,5 @@
 require_relative 'player'
+require_relative 'move'
 
 class Game
   attr_reader :player_1, :player_2, :current_player, :players, :current_opponent
@@ -8,10 +9,11 @@ class Game
     @player_2 = player_2
     @current_player = @player_1
     @current_opponent = @player_2
+    @@move = Move.new
   end
 
   def attack(opponent)
-    opponent.take_damage
+    opponent.take_damage(@@move.simple_attack)
     switch_turn
   end
 

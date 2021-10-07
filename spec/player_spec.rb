@@ -19,7 +19,7 @@ describe Player do
   describe '#take_damage' do
     it "should reduce your hp by 10" do
       
-      expect{player.take_damage}.to change {player.health}.by -10
+      expect{player.take_damage(10)}.to change {player.health}.by -10
     end
   end
 end

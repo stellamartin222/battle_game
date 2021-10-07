@@ -11,11 +11,11 @@ class Player
     @name
   end
 
-  def take_damage
-    @health -= 10
+  def take_damage(damage)
+    @health -= damage
   end
 
   def is_dead?
-    @health == 0
+    @health <= 0
   end
 end
