@@ -16,7 +16,7 @@ class Battle < Sinatra::Base
   end
 
   post '/names' do
-    $game = Game.new(
+    @game = Game.create(
     Player.new(params[:player_1_name]), 
     Player.new(params[:player_2_name])
     )
@@ -24,21 +24,21 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    redirect "/end" if $game.current_player.is_dead? 
-    @game = $game
+    @game = Game.get_game
+    redirect "/end" if @game.current_player.is_dead? 
     erb(:play)
   end
 
   get '/attack' do
-    @game = $game
+    @game = Game.get_game
     @current_player = @game.current_player
     @current_opponent = @game.current_opponent
-    $game.attack(@game.current_opponent)
+    @game.attack(@game.current_opponent)
     erb(:attack)
   end
 
   get '/end' do
-    @dead_player = $game.current_player
+    @dead_player = Game.get_game.current_player
     erb(:end)
   end
 

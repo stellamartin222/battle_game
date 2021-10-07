@@ -6,7 +6,6 @@ class Game
   def initialize(player_1, player_2)
     @player_1 = player_1
     @player_2 = player_2
-    @players = [@player_1, @player_2]
     @current_player = @player_1
     @current_opponent = @player_2
   end
@@ -16,6 +15,13 @@ class Game
     switch_turn
   end
 
+  def self.create(player_1, player_2)
+    @@game = Game.new(player_1, player_2)
+  end
+
+  def self.get_game
+    @@game
+  end
   private
 
   def switch_turn
