@@ -14,4 +14,8 @@ class Player
   def take_damage
     @health -= 10
   end
+
+  def is_dead?
+    @health == 0
+  end
 end
